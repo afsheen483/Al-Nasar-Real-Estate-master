@@ -21,6 +21,9 @@ Route::get('/', function () {
 // route for clients
 Route::get('client_create/{id}','ClientController@create');
 Route::get('/clients','ClientController@index');
+Route::post('/client_insert','ClientController@store');
+Route::put('/client_update/{id}','ClientController@update');
+Route::put('/client_delete/{id}','ClientController@destroy');
 
 
 // route for vendors
@@ -42,6 +45,11 @@ Route::get('/sales/{filter}','SaleController@index');
 // purchase 
 Route::get('/purchase_form/{id}','PurchaseController@create');
 Route::get('/purchase/{filter}','PurchaseController@index');
+Route::put('/purchase_delete/{id}','PurchaseController@destroy');
+Route::put('/purchase_update/{id}','PurchaseController@update');
+Route::post('/purchase_insert','PurchaseController@store');
+Route::get('/purchase_view/{date}','PurchaseController@DateSearch');
+Route::get('/purchase_date_search','PurchaseController@DateSearchBetween');
 
 
 // route for plot
@@ -55,3 +63,27 @@ Route::get('create_file/{id}','FileController@create');
 Route::get('/files','FileController@index');
 Route::get('/purchased_files','FileController@viewPurchasedFile');
 Route::get('/sold_files','FileController@viewSoldFile');
+
+// location
+Route::get('/location','LocationController@index');
+Route::get('create_location/{id}','LocationController@create');
+Route::post('location_insert','LocationController@store');
+Route::put('location_update/{id}','LocationController@update');
+Route::put('location_delete/{id}','LocationController@destroy');
+
+
+// phase route
+Route::get('/phase','PhaseController@index');
+Route::get('create_phase/{id}','PhaseController@create');
+Route::post('phase_insert','PhaseController@store');
+Route::put('phase_update/{id}','PhaseController@update');
+Route::put('phase_delete/{id}','PhaseController@destroy');
+
+// mauza route
+Route::get('/mauza','MauzaController@index');
+Route::get('mauza_create/{id}','MauzaController@create');
+Route::post('mauza_insert','MauzaController@store');
+Route::put('mauza_update/{id}','MauzaController@update');
+Route::put('mauza_delete/{id}','MauzaController@destroy');
+Auth::routes();
+

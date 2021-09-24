@@ -15,19 +15,26 @@
 
                 <h4 class="mt-0 header-title">Create Client</h4>
                 <br>
-               <form action="">
+              @if (request()->id > 0)
+                    <form action="{{ url('client_update',['id'=>$data->id]) }}" method="POST">
+                        @csrf
+                        @method('PUT')
+              @else
+              <form action="{{ url('client_insert') }}" method="POST">
+                @csrf
+              @endif
                 <div class="container" style="margin-left:10%">
                     <div class="row">
                         <div class="col-3">
                             <label>Name</label>
                             <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Enter name here...">
+                                <input class="form-control" type="text" placeholder="Enter name here..." name="client_name" value="{{ is_null($data->client_name) ? '' : $data->client_name }}"> 
                             </div>
                         </div>
                         <div class="col-3">
                             <label>Contact</label>
                             <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Enter Contact here......">
+                                <input class="form-control" type="text" placeholder="Enter Contact here......" name="contact" value="{{ is_null($data->contact) ? '' : $data->contact }}">
                             </div>
                         </div>
                     </div>
@@ -36,37 +43,64 @@
                         <div class="col-3">
                             <label>CNIC</label>
                             <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Enter cnic here...">
+                                <input class="form-control" type="text" placeholder="Enter cnic here..." name="cnic" value="{{ is_null($data->cnic) ? '' : $data->cnic }}">
                             </div>
                         </div>
                         <div class="col-3">
                             <label>Date</label>
                             <div class="form-group">
-                                <input class="form-control" type="date" placeholder="Contact" id="example-search-input">
+                                <input class="form-control" type="date" placeholder="Contact" name="date" id="example-search-input" value="{{ is_null($data->date) ? date('Y-m-d') : $data->date }}">
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-3">
-                            <label>Status</label>
+                            <label>Location</label>
                             <div class="form-group">
-                                <select name="status" id="" class="form-control">
+                                <select name="location_id" id="" class="form-control">
                                     <option value="">Select</option>
+                                    @foreach ($location_array as $array)
+                                        @if ($data->location_id == $array->id)
+                                            <option value="{{ $array->id }}" selected>{{ $array->location_name }}</option>
+                                        @else
+                                        <option value="{{ $array->id }}">{{ $array->location_name }}</option>
+                                        @endif
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
                         <div class="col-3">
                             <label>Open Balance</label>
                             <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Open Balance" id="example-search-input">
+                                <input class="form-control" type="text" placeholder="Open Balance" id="example-search-input" name="open_balance" value="{{ is_null($data->open_balance) ? '' : $data->open_balance }}">
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            @if ($data->type == 'client')
+                                    <input type="radio" name="type" id="" value="client" checked>
+                                    <label for="client">Client</label>
+                            @else
+                            <input type="radio" name="type" id="" value="client">
+                            <label for="client">Client</label>
+                            @endif
+                            
+                            @if ($data->type == 'investor')
+                                <input type="radio" name="type" id="" value="investor" checked>
+                                <label for="investor">Investor</label>  
+                            @else
+                                <input type="radio" name="type" id="" value="investor">
+                                <label for="investor">Investor</label>  
+                            @endif
+                                                 
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-6">
                             <label>Address</label>
                             <div class="form-group">
-                                <textarea name="address" id="" cols="85" rows="10" class="form-control"></textarea>
+                                <textarea name="address" id="" cols="85" rows="10" class="form-control">{{ is_null($data->address) ? '' : $data->address }}</textarea>
                             </div>
                         </div>
                     </div>

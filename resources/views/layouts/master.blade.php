@@ -38,7 +38,7 @@
             <div class="topbar-left">
                 <a href="index.html" class="logo">
                     <span class="logo-light">
-                            <i class="mdi mdi-camera-control"></i> Stexo
+                            <i class="mdi mdi-camera-control"></i> Real Estate
                         </span>
                     <span class="logo-sm">
                             <i class="mdi mdi-camera-control"></i>
@@ -50,19 +50,7 @@
                 <ul class="navbar-right list-inline float-right mb-0">
 
                     <!-- language-->
-                    <li class="dropdown notification-list list-inline-item d-none d-md-inline-block">
-                        <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                            <img src="{{ asset('assets/images/flags/us_flag.jpg') }}" class="mr-2" height="12" alt="" /> English <span class="mdi mdi-chevron-down"></span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated language-switch">
-                            <a class="dropdown-item" href="#"><img src="{{ asset('assets/images/flags/french_flag.jpg') }}" alt="" height="16" /><span> French </span></a>
-                            <a class="dropdown-item" href="#"><img src="{{ asset('assets/images/flags/spain_flag.jpg') }}" alt="" height="16" /><span> Spanish </span></a>
-                            <a class="dropdown-item" href="#"><img src="{{ asset('assets/images/flags/russia_flag.jpg') }}" alt="" height="16" /><span> Russian </span></a>
-                            <a class="dropdown-item" href="#"><img src="{{ asset('assets/images/flags/germany_flag.jpg') }}" alt="" height="16" /><span> German </span></a>
-                            <a class="dropdown-item" href="#"><img src="{{ asset('assets/images/flags/italy_flag.jpg') }}" alt="" height="16" /><span> Italian </span></a>
-                        </div>
-                    </li>
-
+                
                     <!-- full screen -->
                     <li class="dropdown notification-list list-inline-item d-none d-md-inline-block">
                         <a class="nav-link waves-effect" href="#" id="btn-fullscreen">
@@ -71,54 +59,7 @@
                     </li>
 
                     <!-- notification -->
-                    <li class="dropdown notification-list list-inline-item">
-                        <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                            <i class="mdi mdi-bell-outline noti-icon"></i>
-                            <span class="badge badge-pill badge-danger noti-icon-badge">3</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-menu-lg px-1">
-                            <!-- item-->
-                            <h6 class="dropdown-item-text">
-                                    Notifications
-                                </h6>
-                            <div class="slimscroll notification-item-list">
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item active">
-                                    <div class="notify-icon bg-success"><i class="mdi mdi-cart-outline"></i></div>
-                                    <p class="notify-details"><b>Your order is placed</b><span class="text-muted">Dummy text of the printing and typesetting industry.</span></p>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <div class="notify-icon bg-danger"><i class="mdi mdi-message-text-outline"></i></div>
-                                    <p class="notify-details"><b>New Message received</b><span class="text-muted">You have 87 unread messages</span></p>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <div class="notify-icon bg-info"><i class="mdi mdi-filter-outline"></i></div>
-                                    <p class="notify-details"><b>Your item is shipped</b><span class="text-muted">It is a long established fact that a reader will</span></p>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <div class="notify-icon bg-success"><i class="mdi mdi-message-text-outline"></i></div>
-                                    <p class="notify-details"><b>New Message received</b><span class="text-muted">You have 87 unread messages</span></p>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <div class="notify-icon bg-warning"><i class="mdi mdi-cart-outline"></i></div>
-                                    <p class="notify-details"><b>Your order is placed</b><span class="text-muted">Dummy text of the printing and typesetting industry.</span></p>
-                                </a>
-
-                            </div>
-                            <!-- All-->
-                            <a href="javascript:void(0);" class="dropdown-item text-center notify-all text-primary">
-                                    View all <i class="fi-arrow-right"></i>
-                                </a>
-                        </div>
-                    </li>
+               
 
                     <li class="dropdown notification-list list-inline-item">
                         <div class="dropdown notification-list nav-pro-img">
@@ -183,28 +124,54 @@
                                 {{-- <li><a href="email-compose.html"> Update Clients</a></li> --}}
                             </ul>
                         </li>
-    
                         <li>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-map-marker" aria-hidden="true"></i><span> Location <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                            <ul class="submenu">
+                                <li><a href="{{ url('create_location',['id'=>0]) }}">Create Location</a></li>
+                                <li><a href="/location">View Location</a></li>
+                                
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-step-forward" aria-hidden="true"></i>
+                                <span> Phase <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                            <ul class="submenu">
+                                <li><a href="{{ url('create_phase',['id'=>0]) }}">Create Phase</a></li>
+                                <li><a href="/phase">View Phase</a></li>
+                                
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-city"></i>
+                                <span> Mauza <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                            <ul class="submenu">
+                                <li><a href="{{ url('mauza_create',['id'=>0]) }}">Create Mauza</a></li>
+                                <li><a href="/mauza">View Mauza</a></li>
+                                
+                            </ul>
+                        </li>
+                       
+                        {{-- <li>
                             <a href="javascript:void(0);" class="waves-effect"><i class="icon-profile-add"></i><span> Vendors <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                             <ul class="submenu">
                                 <li><a href="{{ url('vendor_create',['id'=>0]) }}">New Vendors</a></li>
                                 <li><a href="/vendors">View Vendor</a></li>
-                                {{-- <li><a href="email-compose.html">Update Vendor</a></li> --}}
+                             
                             </ul>
-                        </li>
+                        </li> --}}
     
-                        <li>
+                        {{-- <li>
                             <a href="javascript:void(0);" class="waves-effect"><i class="icon-squares"></i><span> Land <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                             <ul class="submenu">
                                 <li><a href="{{ url('create_land',['id'=>0]) }}">New Land</a></li>
                                 <li><a href="/lands">View Lands</a></li>
-                                {{-- <li><a href="email-compose.html">Update Land</a></li> --}}
+                             
                                 <li><a href="{{ url('/purchase_lands') }}">View Purchased Lands</a></li>
                                 <li><a href="{{ url('/unsold_lands') }}">View Unsold Lands</a></li>
                                 <li><a href="{{ url('/sold_lands') }}">View Sold Lands</a></li>
                             </ul>
-                        </li>
-    
+                        </li> --}}
+{{--     
                         <li>
                             <a href="javascript:void(0);" class="waves-effect"><i class="icon-three-stripes-horiz"></i><span> Plots <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                             <ul class="submenu">
@@ -215,8 +182,8 @@
                                 
                             </ul>
                         </li>
-    
-                        <li>
+     --}}
+                        {{-- <li>
                             <a href="javascript:void(0);" class="waves-effect"><i class="icon-paper-sheet"></i><span> Files <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                             <ul class="submenu">
                                 <li><a href="{{ url('create_file',['id'=>0]) }}">New File</a></li>
@@ -226,21 +193,21 @@
                                 
                             </ul>
                         </li>
+     --}}
     
-    
-                        <li>
+                        {{-- <li>
                             <a href="javascript:void(0);" class="waves-effect"><i class="icon-pricetag"></i><span> Sale <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                             <ul class="submenu">
                                 <li><a href="{{ url('sale_form',['id'=>0]) }}">New Sale</a></li>
                                 <li><a href="/sales/view_sale">View Sales</a></li>
-                                {{-- <li><a href="email-compose.html">Update Sale</a></li> --}}
+                               
                                 <li><a href="/sales/complete_sale">View Completed Sales</a></li>
                                 <li><a href="/sales/incomplete_sale">View Incomplete Sales</a></li>
                                 <li><a href="/sales/specific_date">View Sales By Specific Date</a></li>
                                 <li><a href="/sales/between_dates">View Sales Between Dates</a></li>
                                 
                             </ul>
-                        </li>
+                        </li> --}}
     
                         <li>
                             <a href="javascript:void(0);" class="waves-effect"><i class="icon-shopping-cart"></i><span> Purchase <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
@@ -249,11 +216,11 @@
                                 <li><a href="/purchase/view_purchase">View Purchases</a></li>
                                 {{-- <li><a href="email-compose.html">Update Purchase</a></li> --}}
                                 <li><a href="/purchase/complete_purchase">View Completed Purchases</a></li>
-                                <li><a href="/purchase/specific_date">View Purchase by Specific Date</a></li>
-                                <li><a href="/purchase/between_date">View Purchases Between Dates</a></li>
+                                <li><a href="/purchase_view/{{ date('Y-m-d') }}">View Purchase by Date</a></li>
+                                
                             </ul>
                         </li>
-    
+{{--     
                         <li>
                             <a href="javascript:void(0);" class="waves-effect"><i class="icon-case-2"></i><span> Payments <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                             <ul class="submenu">
@@ -261,9 +228,9 @@
                                 <li><a href="email-read.html">Update Transaction (Credit , Debit)</a></li>
                                 <li><a href="email-compose.html">Delete Transaction (Credit , Debit)</a></li>
                             </ul>
-                        </li>
+                        </li> --}}
     
-                        <li>
+                        {{-- <li>
                             <a href="javascript:void(0);" class="waves-effect"><i class="icon-graph"></i><span> Reports <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                             <ul class="submenu">
                                 <li><a href="email-inbox.html">New Cash In</a></li>
@@ -275,14 +242,29 @@
                                 <li><a href="email-compose.html">Expense Report</a></li>
                             </ul>
                         </li>
-    
+     --}}
                         <li>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="far fa-user"></i><span> User Management </span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                            <li>
+                            <a href="../users"><i class="fa fa-user"></i><span>Users</span></a>
+                            </li>
+                            <li>
+                                <a href="../roles"><i class="fa fa-user"></i><span>Roles</span></a>
+                            </li>
+                            <li>
+                            <a href="../permissions"><i class="fas fa-key"></i><span>Permissions</span></a>
+                            </li>                            
+
+                            </ul>
+                        </li>
+                        {{-- <li>
                             <a href="javascript:void(0);" class="waves-effect"><i class="icon-setting-1"></i><span> Settings <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                             <ul class="submenu">
                                 <li><a href="email-inbox.html">Change Username</a></li>
                                 <li><a href="email-read.html">Change Password</a></li>
                             </ul>
-                        </li>
+                        </li> --}}
         
                           
                     </ul>
@@ -305,7 +287,7 @@
             <div class="content">
                 <div class="page-title-box">
                     <div class="row align-items-center">
-                        <div class="col-sm-6">
+                        <div class="col-sm-12">
                             <h4 class="page-title">@yield('headername')</h4>
                         </div>
                     </div>
