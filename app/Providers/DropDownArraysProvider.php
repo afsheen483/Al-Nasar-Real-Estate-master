@@ -25,6 +25,9 @@ class DropDownArraysProvider extends ServiceProvider
                     view()->composer('*',function($view){
                         $view->with('client_array',DB::table('clients')->where('is_deleted','=',0)->get());
                         });
+                        view()->composer('*',function($view){
+                            $view->with('purchase_array',DB::table('purchase')->where('is_deleted','=',0)->get());
+                            });
     }
 
     /**

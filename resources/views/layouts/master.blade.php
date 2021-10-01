@@ -125,6 +125,17 @@
                             </ul>
                         </li>
                         <li>
+                            <a href="/ledger" class="waves-effect">
+                                <i class="icon-profile"></i><span> Ledger </span>
+                            </a>
+                        </li>
+                        {{-- <li>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="icon-profile"></i><span> Ledger <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                            <ul class="submenu">
+                                <li><a href="/ledger"> View Ledger</a></li>
+                            </ul>
+                        </li>  --}}
+                        <li>
                             <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-map-marker" aria-hidden="true"></i><span> Location <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                             <ul class="submenu">
                                 <li><a href="{{ url('create_location',['id'=>0]) }}">Create Location</a></li>
@@ -147,6 +158,16 @@
                             <ul class="submenu">
                                 <li><a href="{{ url('mauza_create',['id'=>0]) }}">Create Mauza</a></li>
                                 <li><a href="/mauza">View Mauza</a></li>
+                                
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="fas fa-money-bill"></i>
+
+                                <span> Expenses <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                            <ul class="submenu">
+                                <li><a href="{{ url('expense_create',['id'=>0]) }}">Create Expenses</a></li>
+                                <li><a href="/expenses">View Expense</a></li>
                                 
                             </ul>
                         </li>

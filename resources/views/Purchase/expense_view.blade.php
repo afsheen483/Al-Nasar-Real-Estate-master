@@ -1,11 +1,11 @@
 @extends('layouts.master')
 
 @section('title')
-    Purchase
+    Expense
 @endsection
 
 @section('headername')
-    Purchase
+    Expense
 @endsection
 
 @section('content')
@@ -13,57 +13,22 @@
     <div class="col-12">
         <div class="card m-b-30">
             <div class="card-body">
-              
-                
-                @if (request()->date || request()->to_date || request()->from_date)
-                <div class="" style="margin-left: 1.45%">
-                    <form action="{{ url('purchase_date_search') }}" action="get">
-                        @csrf
-                        <div class="row">
-                            <div class="col-2">
-                                <label for="">To Date</label>
-                                 <input type="date" name="to_date" id="" class="form-control">
-                            </div>
-                            <div class="col-2">
-                                <label for="">End Date</label>
-                                <input type="date" name="from_date" id="" class="form-control">
-                           </div>
-                            <div class="col-2" style="margin-top: 2%">
-                                <button type="submit" class="btn btn-primary">Search</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <br>
-                @endif
                 <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                     <thead>
                     <tr>
-                        <th>ClientName</th>
+                        <th>ID</th>
                         <th>Date</th>
-                        {{-- <th>File</th> --}}
-                        <th>Sale Amount</th>
-                        <th>Paid Amount</th>
-                        {{-- <th>Witness 1 Name</th>
-                        <th>Witness 1 CNIC</th>
-                        <th>Witness 2 Name</th>
-                        <th>Witness 2 CNIC</th> --}}
-                        <th>Description</th>
-                        <th data-priority="-1">Action</th>
+                        <th>Amount</th>
+                        <th>Purchase</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
                         @foreach ($data as $data)
                            <tr>
-                            <td>{{ $data->client_name }}</td>
+                            <td>{{ $data->id }}</td>
                             <td>{{ $data->date }}</td>
-                            {{-- <td><a href="{{ $data->file }}" target="blank">{{ $data->file }}</a></td> --}}
-                            <td>{{ $data->sale_amount }}</td>
-                            <td>{{ $data->paid_amount }}</td>
-                            {{-- <td>{{ $data->witness_name_1 }}</td>
-                            <td>{{ $data->witness_cnic_1 }}</td>
-                            <td>{{ $data->witness_name_2 }}</td>
-                            <td>{{ $data->witness_cnic_2 }}</td> --}}
+                            <td>{{ $data->amount }}</td>
                             <td>{{ $data->description }}</td>
                             <td>
                                 <a href="{{ url('expense_create',['id'=>$data->id]) }}" style="color: blue;cursor: pointer;"><i class="fa fa-edit"></i></a> | 
@@ -92,7 +57,7 @@
           var delete_id = $(this).attr("id");
           var th=$(this);
           console.log(delete_id);
-          var url = "{{url('expense_delete')}}/"+delete_id;
+          var url = "{{url('purchase_delete')}}/"+delete_id;
           Swal.fire({
 							  title: 'Are you sure?',
 							  text: "You won't be able to revert this!",

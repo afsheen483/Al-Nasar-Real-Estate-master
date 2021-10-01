@@ -87,3 +87,25 @@ Route::put('mauza_update/{id}','MauzaController@update');
 Route::put('mauza_delete/{id}','MauzaController@destroy');
 Auth::routes();
 
+Route::get('/expenses','ExpenseController@index');
+Route::get('expense_create/{id}','ExpenseController@create');
+Route::post('expense_insert','ExpenseController@store');
+Route::put('expense_update/{id}','ExpenseController@update');
+Route::put('expense_delete/{id}','ExpenseController@destroy');
+
+// ledger route
+Route::get('/get_client','LedgerController@index');
+Route::get('/ledger_create/{id}','LedgerController@create');
+Route::get('/ledger','LedgerController@view');
+Route::Post('/save_transaction','LedgerController@SaveTransaction');
+
+Route::get('/clear', function() {
+
+    Artisan::call('cache:clear');
+    Artisan::call('config:clear');
+    Artisan::call('config:cache');
+    Artisan::call('view:clear');
+ 
+    return "Cleared!";
+ 
+ });
